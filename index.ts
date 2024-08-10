@@ -25,12 +25,18 @@ let { urllat, urllng, urlhead } = getUrlParams();
 
 // Default coordinates if URL parameters are not provided
 // urllat=-36.8645111&urllng=174.7459659 
+
 const defaultLat = -36.8645111;
 const defaultLng = 174.7459659;
 const defaulthead = 0;
 
 // Example usage: Print the coordinates
-console.log(`Latitude: ${urllat ?? defaultLat}, Longitude: ${urllng ?? defaultLng}, Heading: ${urlhead ?? defaulthead}`);
+//console.log(`Latitude: ${urllat ?? defaultLat}, Longitude: ${urllng ?? defaultLng}, Heading: ${urlhead ?? defaulthead}`);
+console.log(
+  `Latitude: ${urllat ?? `Latitude Default: ${defaultLat}`}, ` +
+  `Longitude: ${urllng ?? `Longitude Default: ${defaultLng}`}, ` +
+  `Heading: ${urlhead ?? `Heading Default: ${defaulthead}`}`
+);
 
 function initialize() {
   panorama = new google.maps.StreetViewPanorama(
