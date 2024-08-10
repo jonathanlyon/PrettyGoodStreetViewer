@@ -1,0 +1,35 @@
+{
+  "name": "prettygoodstreetviewer",
+  "description": "This project implements a Google Street View Panorama that can be initialized with specific coordinates and heading using URL parameters. Its built using TypeScript and the Google Maps JavaScript API.",
+  "version": "2.1.4",
+  "keywords": [
+    "google",
+    "javascript",
+    "maps",
+    "samples"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/jonathanlyon/PrettyGoodStreetViewer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanlyon/PrettyGoodStreetViewer"
+  },
+  "files": [],
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build --outDir dist --base '/'",
+    "test": "tsc --no-emit",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.53.5",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
+  },
+  "private": true,
+  "dependencies": {}
+}
