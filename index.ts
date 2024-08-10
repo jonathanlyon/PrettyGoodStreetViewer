@@ -6,16 +6,49 @@
 
 let panorama: google.maps.StreetViewPanorama;
 
+// Function to get URL parameters
+function getUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const urllat = params.get('urllat');
+  const urllng = params.get('urllng');
+  const urlhead = params.get('urlhead');
+
+  return { 
+    urllat: urllat ? parseFloat(urllat) : null, 
+    urllng: urllng ? parseFloat(urllng) : null,
+    urlhead: urlhead ? parseFloat(urlhead) : null     
+  };
+}
+
+// Get the parameters
+let { urllat, urllng, urlhead } = getUrlParams();
+
+// Default coordinates if URL parameters are not provided
+// urllat=-36.8645111&urllng=174.7459659 
+const defaultLat = -36.8645111;
+const defaultLng = 174.7459659;
+const defaulthead = 0;
+
+// Example usage: Print the coordinates
+console.log(`Latitude: ${urllat ?? defaultLat}, Longitude: ${urllng ?? defaultLng}, Heading: ${urlhead ?? defaulthead}`);
+
 function initialize() {
   panorama = new google.maps.StreetViewPanorama(
     document.getElementById("street-view") as HTMLElement,
     {
-      position: { lat: 37.86926, lng: -122.254811 },
-      pov: { heading: 165, pitch: 0 },
+      position: { 
+        lat: urllat ?? defaultLat, 
+        lng: urllng ?? defaultLng 
+      },
+      pov: {
+        heading: urlhead ?? defaulthead,
+        pitch: 0 
+       },
       zoom: 1,
     }
   );
 }
+
 declare global {
   interface Window {
     initialize: () => void;
