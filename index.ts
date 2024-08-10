@@ -50,7 +50,7 @@ function initialize() {
         heading: urlhead ?? defaulthead,
         pitch: 0 
        },
-      zoom: 1,
+      zoom: 2,
     }
   );
 }
