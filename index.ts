@@ -28,7 +28,7 @@ let { urllat, urllng, urlhead } = getUrlParams();
 
 const defaultLat = -36.8645111;
 const defaultLng = 174.7459659;
-const defaulthead = 0;
+const defaulthead = -30;
 
 // Example usage: Print the coordinates
 //console.log(`Latitude: ${urllat ?? defaultLat}, Longitude: ${urllng ?? defaultLng}, Heading: ${urlhead ?? defaulthead}`);
