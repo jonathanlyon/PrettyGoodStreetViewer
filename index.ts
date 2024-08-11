@@ -53,6 +53,20 @@ function initialize() {
       zoom: 1,
     }
   );
+
+  const PrettyGoodIcon = document.createElement("img");
+  PrettyGoodIcon.src = "https://res.cloudinary.com/frontly/image/upload/v1723375572/exclude_x7jewx.svg";
+
+
+  // Set up the markers on the map
+  const pgMarker = new google.maps.Marker({
+    position: { lat: -36.8645111, lng: 174.7459659 },
+    map: panorama,
+    title: "PrettyGood",
+    icon: PrettyGoodIcon.src,
+  });
+
+
 }
 
 
