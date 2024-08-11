@@ -50,7 +50,6 @@ function initialize() {
         heading: urlhead ?? defaulthead,
         pitch: 0 
        },
-      zoom: 1,
     }
   );
 
@@ -60,10 +59,14 @@ function initialize() {
 
   // Set up the markers on the map
   const pgMarker = new google.maps.Marker({
-    position: { lat: -36.8645111, lng: 174.7459659 },
+    position: { 
+      lat: urllat ?? defaultLat, 
+      lng: urllng ?? defaultLng 
+    },
     map: panorama,
     title: "PrettyGood",
     icon: PrettyGoodIcon.src,
+    link: "https://prettygood.nz",
   });
 
 
