@@ -50,10 +50,12 @@ function initialize() {
         heading: urlhead ?? defaulthead,
         pitch: 0 
        },
-      zoom: 2,
+      zoom: 1,
     }
   );
 }
+
+
 
 declare global {
   interface Window {
