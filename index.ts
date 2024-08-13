@@ -12,16 +12,18 @@ function getUrlParams() {
   const urllat = params.get('urllat');
   const urllng = params.get('urllng');
   const urlhead = params.get('urlhead');
+  const svgid = params.get('svgid'); // Get the value of 'svgfilenumber'
 
   return { 
     urllat: urllat ? parseFloat(urllat) : null, 
     urllng: urllng ? parseFloat(urllng) : null,
-    urlhead: urlhead ? parseFloat(urlhead) : null     
+    urlhead: urlhead ? parseFloat(urlhead) : null,
+    svgid: svgid ? svgid : null 
   };
 }
 
 // Get the parameters
-let { urllat, urllng, urlhead } = getUrlParams();
+let { urllat, urllng, urlhead, svgid } = getUrlParams();
 
 // Default coordinates if URL parameters are not provided
 // urllat=-36.8645111&urllng=174.7459659 
@@ -54,9 +56,20 @@ function initialize() {
   );
 
   const PrettyGoodIcon = document.createElement("img");
-  PrettyGoodIcon.src = "https://res.cloudinary.com/frontly/image/upload/v1723375572/exclude_x7jewx.svg";
+    
+  // Check if the svgid is a single digit, if so, prepend a zero
+  if (svgid && svgid.length === 1) {
+    svgid = '0' + svgid;
+  }
 
-
+  if (svgid) {
+    PrettyGoodIcon.src = `https://data.aaap.ai/ooh/prettygood_svg_info_cards/ooh_${svgid}.svg`;
+    console.log(PrettyGoodIcon.src); // Outputs: https://data.aaap.ai/ooh/prettygood_svg_info_cards/ooh_722.svg
+  } else {
+    PrettyGoodIcon.src = "https://res.cloudinary.com/frontly/image/upload/v1723472357/5_kqjcp6.svg";
+  }
+  
+ 
   // Set up the markers on the map
   const pgMarker = new google.maps.Marker({
     position: { 
@@ -66,8 +79,7 @@ function initialize() {
     map: panorama,
     title: "PrettyGood",
     icon: PrettyGoodIcon.src,
-    link: "https://prettygood.nz",
-  });
+   });
 
 
 }
